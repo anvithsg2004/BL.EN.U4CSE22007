@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 public class StockController {
     @Autowired
     private StockService stockService;
