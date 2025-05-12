@@ -12,7 +12,6 @@ import {
 } from 'chart.js';
 import { format, parseISO } from 'date-fns';
 
-// Register ChartJS components
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -24,20 +23,17 @@ ChartJS.register(
 );
 
 /**
- * Price chart component for visualizing stock prices
- * @param {Object} props - Component props
- * @param {Array} props.data - Price history data
- * @param {string} props.ticker - Stock ticker symbol
+ * @param {Object} props
+ * @param {Array} props.data
+ * @param {string} props.ticker
  */
 const PriceChart = ({ data, ticker }) => {
     if (!data || data.length === 0) return null;
 
-    // Sort data by timestamp (ascending)
     const sortedData = [...data].sort((a, b) =>
         new Date(a.lastUpdatedAt) - new Date(b.lastUpdatedAt)
     );
 
-    // Prepare data for chart
     const chartData = {
         labels: sortedData.map(item =>
             format(parseISO(item.lastUpdatedAt), 'HH:mm:ss')
@@ -61,7 +57,6 @@ const PriceChart = ({ data, ticker }) => {
         ],
     };
 
-    // Chart options
     const options = {
         responsive: true,
         maintainAspectRatio: false,

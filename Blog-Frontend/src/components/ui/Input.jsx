@@ -1,12 +1,11 @@
 import React from 'react';
 
 /**
- * Input component for form fields
- * @param {Object} props - Component props
- * @param {string} props.label - Input label
- * @param {string} props.id - Input id
- * @param {string} [props.type='text'] - Input type
- * @param {string} [props.error] - Error message to display
+ * @param {Object} props
+ * @param {string} props.label
+ * @param {string} props.id
+ * @param {string} [props.type='text']
+ * @param {string} [props.error]
  */
 const Input = ({
     label,

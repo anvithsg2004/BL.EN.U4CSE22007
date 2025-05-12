@@ -1,10 +1,9 @@
 import React from 'react';
 
 /**
- * Loading spinner component
- * @param {Object} props - Component props
- * @param {string} [props.size='md'] - Spinner size (sm, md, lg)
- * @param {string} [props.color='primary'] - Spinner color
+ * @param {Object} props
+ * @param {string} [props.size='md']
+ * @param {string} [props.color='primary']
  */
 const LoadingSpinner = ({ size = 'md', color = 'primary', className = '' }) => {
     const sizeClasses = {

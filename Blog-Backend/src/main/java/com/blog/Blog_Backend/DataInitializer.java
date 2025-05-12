@@ -15,10 +15,8 @@ public class DataInitializer {
     @Bean
     public CommandLineRunner initData(MongoTemplate mongoTemplate) {
         return args -> {
-            // Clear existing data
             mongoTemplate.dropCollection("stock_prices");
 
-            // Insert sample data with recent timestamps
             Instant now = Instant.now();
             StockPriceEntry[] entries = new StockPriceEntry[]{
                     createEntry("NVDA", 231.95296, now.minus(50, ChronoUnit.MINUTES), now.plus(10, ChronoUnit.MINUTES)),

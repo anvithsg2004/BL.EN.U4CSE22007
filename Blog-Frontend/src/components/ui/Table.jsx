@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { format } from 'date-fns';
 
 /**
- * Table component for displaying data
- * @param {Object} props - Component props
- * @param {Array} props.data - Table data
- * @param {Array} props.columns - Table columns configuration
- * @param {string} [props.emptyMessage='No data available'] - Message to display when table is empty
+ * @param {Object} props
+ * @param {Array} props.data
+ * @param {Array} props.columns
+ * @param {string} [props.emptyMessage='No data available']
  */
 const Table = ({
     data = [],
@@ -19,7 +18,6 @@ const Table = ({
         direction: 'asc',
     });
 
-    // Handle column sort
     const handleSort = (key) => {
         let direction = 'asc';
         if (sortConfig.key === key && sortConfig.direction === 'asc') {
@@ -28,7 +26,6 @@ const Table = ({
         setSortConfig({ key, direction });
     };
 
-    // Format cell value based on column type
     const formatCellValue = (value, column) => {
         if (value === null || value === undefined) return '-';
 
@@ -49,7 +46,6 @@ const Table = ({
         return value;
     };
 
-    // Sort data based on current sort configuration
     const sortedData = React.useMemo(() => {
         if (!sortConfig.key) return data;
 
@@ -59,11 +55,9 @@ const Table = ({
             const aValue = a[sortConfig.key];
             const bValue = b[sortConfig.key];
 
-            // Handle null/undefined values
             if (aValue === null || aValue === undefined) return sortConfig.direction === 'asc' ? -1 : 1;
             if (bValue === null || bValue === undefined) return sortConfig.direction === 'asc' ? 1 : -1;
 
-            // Sort based on column type
             if (column?.type === 'number') {
                 return sortConfig.direction === 'asc'
                     ? aValue - bValue
@@ -78,14 +72,12 @@ const Table = ({
                     : dateB - dateA;
             }
 
-            // Default string comparison
             return sortConfig.direction === 'asc'
                 ? String(aValue).localeCompare(String(bValue))
                 : String(bValue).localeCompare(String(aValue));
         });
     }, [data, sortConfig, columns]);
 
-    // Render sort indicator
     const renderSortIndicator = (column) => {
         if (sortConfig.key !== column.accessor) {
             return <span className="text-gray-300 ml-1">↕</span>;

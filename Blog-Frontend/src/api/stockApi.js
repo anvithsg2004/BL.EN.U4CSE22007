@@ -1,8 +1,7 @@
 /**
- * Fetches stock data for a single ticker
- * @param {string} ticker - Stock ticker symbol
- * @param {number} minutes - Time window in minutes
- * @returns {Promise<Object>} - Stock data including average price and history
+ * @param {string} ticker
+ * @param {number} minutes
+ * @returns {Promise<Object>}
  */
 export const fetchStockData = async (ticker, minutes) => {
     if (!ticker || !minutes) {
@@ -26,11 +25,10 @@ export const fetchStockData = async (ticker, minutes) => {
 };
 
 /**
- * Fetches correlation data between two stocks
- * @param {string} ticker1 - First stock ticker symbol
- * @param {string} ticker2 - Second stock ticker symbol
- * @param {number} minutes - Time window in minutes
- * @returns {Promise<Object>} - Correlation data and stock information
+ * @param {string} ticker1
+ * @param {string} ticker2
+ * @param {number} minutes
+ * @returns {Promise<Object>}
  */
 export const fetchCorrelationData = async (ticker1, ticker2, minutes) => {
     if (!ticker1 || !ticker2 || !minutes) {

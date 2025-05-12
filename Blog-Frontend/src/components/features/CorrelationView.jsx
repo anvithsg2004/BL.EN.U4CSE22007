@@ -23,7 +23,6 @@ const CorrelationView = () => {
     const [error, setError] = useState('');
     const [activeTab, setActiveTab] = useState('');
 
-    // Define table columns
     const columns = [
         { header: 'Ticker', accessor: 'ticker', sortable: true },
         {
@@ -50,7 +49,6 @@ const CorrelationView = () => {
         }
     ];
 
-    // Handle form submission
     const handleSubmit = async (e) => {
         if (e) e.preventDefault();
 
@@ -89,12 +87,10 @@ const CorrelationView = () => {
         }
     };
 
-    // Handle quick pair selection
     const handleQuickSelect = (pair) => {
         setTicker1(pair.ticker1);
         setTicker2(pair.ticker2);
 
-        // If we already have minutes, fetch right away
         if (minutes) {
             setError('');
             setLoading(true);
@@ -115,7 +111,6 @@ const CorrelationView = () => {
         }
     };
 
-    // Interpret correlation value
     const interpretCorrelation = (correlation) => {
         if (correlation >= 0.7) return 'Strong positive correlation';
         if (correlation >= 0.4) return 'Moderate positive correlation';
@@ -140,7 +135,6 @@ const CorrelationView = () => {
         <div className="card animate-fade-in">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Stock Correlation Analysis</h2>
 
-            {/* Input form */}
             <div className="mb-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                     <p className="text-sm text-gray-600 mr-2">Popular pairs:</p>
@@ -199,17 +193,14 @@ const CorrelationView = () => {
                 </Button>
             </div>
 
-            {/* Error message */}
             {error && <Alert type="error" message={error} />}
 
-            {/* Loading state */}
             {loading && (
                 <div className="flex justify-center items-center py-12">
                     <LoadingSpinner size="lg" />
                 </div>
             )}
 
-            {/* Results */}
             {correlationData && !loading && (
                 <div className="space-y-6 animate-fade-in">
                     <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
@@ -240,8 +231,6 @@ const CorrelationView = () => {
                             })}
                         </div>
                     </div>
-
-                    {/* Tabs for stock data */}
                     <div>
                         <div className="border-b border-gray-200">
                             <nav className="-mb-px flex space-x-4">

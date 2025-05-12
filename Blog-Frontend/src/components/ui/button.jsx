@@ -1,11 +1,10 @@
 import React from 'react';
 
 /**
- * Button component with different variants
- * @param {Object} props - Component props
- * @param {string} [props.variant='primary'] - Button variant (primary, secondary)
- * @param {string} [props.size='md'] - Button size (sm, md, lg)
- * @param {boolean} [props.isLoading=false] - Whether the button is in loading state
+ * @param {Object} props
+ * @param {string} [props.variant='primary']
+ * @param {string} [props.size='md']
+ * @param {boolean} [props.isLoading=false]
  */
 const Button = ({
     children,

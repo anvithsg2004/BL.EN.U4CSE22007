@@ -1,10 +1,9 @@
 import React from 'react';
 
 /**
- * Alert component for displaying messages
- * @param {Object} props - Component props
- * @param {string} [props.type='error'] - Alert type (error, success, warning, info)
- * @param {string} props.message - Alert message
+ * @param {Object} props 
+ * @param {string} [props.type='error']
+ * @param {string} props.message
  */
 const Alert = ({ type = 'error', message, className = '' }) => {
     if (!message) return null;

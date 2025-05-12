@@ -16,7 +16,6 @@ const SingleTickerView = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    // Define table columns
     const columns = [
         { header: 'Ticker', accessor: 'ticker', sortable: true },
         {
@@ -43,7 +42,6 @@ const SingleTickerView = () => {
         }
     ];
 
-    // Handle form submission
     const handleSubmit = async (e) => {
         if (e) e.preventDefault();
 
@@ -72,10 +70,8 @@ const SingleTickerView = () => {
         }
     };
 
-    // Handle quick ticker selection
     const handleQuickSelect = (selectedTicker) => {
         setTicker(selectedTicker);
-        // If we already have minutes, fetch right away
         if (minutes) {
             setError('');
             setLoading(true);
@@ -99,7 +95,6 @@ const SingleTickerView = () => {
         <div className="card animate-fade-in">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Single Ticker Analysis</h2>
 
-            {/* Input form */}
             <div className="mb-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                     <p className="text-sm text-gray-600 mr-2">Popular tickers:</p>
@@ -149,17 +144,14 @@ const SingleTickerView = () => {
                 </Button>
             </div>
 
-            {/* Error message */}
             {error && <Alert type="error" message={error} />}
 
-            {/* Loading state */}
             {loading && (
                 <div className="flex justify-center items-center py-12">
                     <LoadingSpinner size="lg" />
                 </div>
             )}
 
-            {/* Results */}
             {stockData && !loading && (
                 <div className="space-y-6 animate-fade-in">
                     <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
